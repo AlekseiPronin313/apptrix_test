@@ -1,0 +1,7 @@
+.main__text {
+    border: 1px solid black;
+    background: #999999;
+    font-size: 30px;
+    margin-right: 25px;
+    border-spacing: 0;
+}

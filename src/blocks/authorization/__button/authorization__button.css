@@ -1,0 +1,11 @@
+.authorization__button {
+    width: 100%;
+    border-radius: 15px;
+    height: 60px;
+    margin-top: 10px;
+    cursor: pointer;
+}
+
+.authorization__button:hover {
+    opacity: 0.6;
+}

@@ -1,0 +1,7 @@
+.main__card {
+    cursor: pointer;
+}
+
+.main__card:hover {
+    background: rgba(153, 153, 153, 0.6);
+}
