@@ -1,0 +1,11 @@
+.header__link {
+    color: white;
+    font-size: 25px;
+    margin-right: 20px;
+    text-decoration: none;
+}
+
+.active {
+    color: blue;
+    text-decoration: underline;
+}

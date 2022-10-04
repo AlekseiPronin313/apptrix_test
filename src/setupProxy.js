@@ -1,31 +1,37 @@
-const { createProxyMiddleware } = require('http-proxy-middleware');
+const { createProxyMiddleware } = require("http-proxy-middleware");
 
-module.exports = function(app) {
+module.exports = function (app) {
   app.use(
-    '/api/token/',
+    "/api/token/",
     createProxyMiddleware({
-      target: 'http://erp.apptrix.ru',
+      target: "http://erp.apptrix.ru",
       changeOrigin: true,
     })
   );
 };
 
-module.exports = function(app) {
+module.exports = function (app) {
   app.use(
-    '/api/token/refresh/',
+    "/api/token/refresh/",
     createProxyMiddleware({
-      target: 'http://erp.apptrix.ru',
+      target: "http://erp.apptrix.ru",
       changeOrigin: true,
     })
   );
 };
 
-module.exports = function(app) {
-  app.use(
-    '/youtrack/api/users',
-    createProxyMiddleware({
-      target: 'https://demo-apptrix.myjetbrains.com',
-      changeOrigin: true,
-    })
-  );
+const users = {
+  target: "https://demo-apptrix.myjetbrains.com",
+  changeOrigin: true,
+};
+
+const tasks = {
+  target: "https://demo-apptrix.myjetbrains.com",
+  changeOrigin: true,
+};
+
+module.exports = function (app) {
+  app.use("/youtrack/api/issues", createProxyMiddleware(tasks));
+
+  app.use("/youtrack/api/users", createProxyMiddleware(users));
 };

@@ -1,20 +1,24 @@
 import React from "react";
 import { Routes, Route, Navigate, useNavigate } from "react-router-dom";
 import Authorization from "./Authorization";
-import Main from "./Main";
 import * as api from "../utils/api";
 import InfoPopup from "./InfoPopup";
-import { getContent } from "../utils/apiYouTracka";
+import { getContent, getTasks } from "../utils/apiYouTracka";
+import Users from "./Users";
+import ProtectedRoute from './ProtectedRoute'
+import { Layout } from "./Layout";
+import Tasks from "./Tasks";
 
 function App() {
   const navigate = useNavigate();
   const [isLoggedIn, setIsLoggedIn] = React.useState(false);
   const [openInfoPopup, setOpenInfoPopup] = React.useState(false);
   const [cards, setCards] = React.useState([]);
-  const [data, setData] = React.useState([])
+  const [data, setData] = React.useState([]);
+  const [tasks, setTasks] = React.useState([])
 
   function handleInfoPopupClick(card) {
-    setData(card)
+    setData(card);
     setOpenInfoPopup(true);
   }
 
@@ -23,10 +27,20 @@ function App() {
   }
 
   React.useEffect(() => {
-    getContent().then((res) => {
-      setCards(res);
-    });
-  }, []);
+    if (isLoggedIn) {getContent()
+      .then((res) => {
+        setCards(res.data);
+      });
+    }
+  }, [isLoggedIn]);
+  
+
+  React.useEffect(() => {
+    if (isLoggedIn) {getTasks().then((res) => {
+        setTasks(res.data)
+      });
+    }
+  }, [isLoggedIn]);
 
   function onLogin(username, password) {
     api
@@ -34,7 +48,7 @@ function App() {
       .then(() => {
         alert("Успешно");
         setIsLoggedIn(true);
-        navigate("/Home");
+        navigate("/");
       })
       .catch((err) => {
         alert("Введен неверный логин или пароль");
@@ -44,23 +58,30 @@ function App() {
       });
   }
 
-  React.useEffect(() => {
-    if (isLoggedIn) {
-      navigate("/Home");
-    }
-  }, [isLoggedIn, navigate]);
-
   return (
     <div>
       <Routes>
-        <Route path="/login" element={<Authorization onLogin={onLogin} />} />
-        <Route path="/Home" element={<Main open={handleInfoPopupClick} cards={cards} />} />
+        <Route path="/Login" element={<Authorization onLogin={onLogin} />} />
+        <Route path="/" element={<ProtectedRoute 
+        component={Layout}
+        loggedIn = {isLoggedIn}
+        />}>
+          <Route
+            index
+            element={<Users open={handleInfoPopupClick} cards={cards} />}
+          />
+          <Route path="Tasks" element={<Tasks tasks={tasks}/>} />
+        </Route>
         <Route
           path="*"
-          element={<Navigate to={isLoggedIn ? "/Home" : "/Login"} />}
+          element={<Navigate to={isLoggedIn ? "" : "/Login"} />}
         />
       </Routes>
-      <InfoPopup close={closeInfoPopup} openInfoPopup={openInfoPopup} data={data}/>
+      <InfoPopup
+        close={closeInfoPopup}
+        openInfoPopup={openInfoPopup}
+        data={data}
+      />
     </div>
   );
 }

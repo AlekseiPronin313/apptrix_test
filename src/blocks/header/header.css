@@ -1,8 +1,6 @@
-.main {
-    height: 100vh;
+.header {
+    height: 50px;
     display: flex;
     justify-content: center;
     align-items: center;
-    background: white;
-
 }
