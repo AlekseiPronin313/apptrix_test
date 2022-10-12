@@ -1,5 +1,6 @@
 import axios from "axios"
 
+
 const token = 'perm:cm9vdA==.NDktNQ==.U9qYToWJGGM0yfVz5wjeYYas7FDvGL'
 
 export const getContent = async () => {
@@ -12,6 +13,14 @@ export const getContent = async () => {
 
 export const getTasks = async () => {
   return await axios.get('/youtrack/api/issues?fields=id,summary,project(name)', {
+    headers: {
+      'Authorization': `Bearer ${token}`}
+  })
+  .catch(err => console.log(err))
+}
+
+export const getWorkItems = async () => {
+  return await axios.get(`/youtrack/api/workItems?fields=issue(id),duration(minutes),author(login)`, {
     headers: {
       'Authorization': `Bearer ${token}`}
   })

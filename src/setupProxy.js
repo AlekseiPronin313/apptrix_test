@@ -30,8 +30,15 @@ const tasks = {
   changeOrigin: true,
 };
 
+const workItems = {
+  target: "https://demo-apptrix.myjetbrains.com",
+  changeOrigin: true,
+};
+
 module.exports = function (app) {
   app.use("/youtrack/api/issues", createProxyMiddleware(tasks));
 
   app.use("/youtrack/api/users", createProxyMiddleware(users));
+
+  app.use("/youtrack/api/workItems", createProxyMiddleware(workItems));
 };

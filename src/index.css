@@ -16,3 +16,6 @@
 @import url(./blocks/header/header.css);
 @import url(./blocks/header/__link/header__link.css);
 @import url(./blocks/tasks/tasks.css);
+@import url(./blocks/tasks/__button/tasks__button.css);
+@import url(./blocks/tasks/__card/tasks__card.css);
+@import url(./blocks/tasks/__button/-back/tasks__button-back.css);

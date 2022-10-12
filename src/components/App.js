@@ -3,11 +3,12 @@ import { Routes, Route, Navigate, useNavigate } from "react-router-dom";
 import Authorization from "./Authorization";
 import * as api from "../utils/api";
 import InfoPopup from "./InfoPopup";
-import { getContent, getTasks } from "../utils/apiYouTracka";
+import { getContent, getTasks} from "../utils/apiYouTracka";
 import Users from "./Users";
 import ProtectedRoute from './ProtectedRoute'
 import { Layout } from "./Layout";
 import Tasks from "./Tasks";
+import WorkItems from "./WorkItems";
 
 function App() {
   const navigate = useNavigate();
@@ -16,6 +17,11 @@ function App() {
   const [cards, setCards] = React.useState([]);
   const [data, setData] = React.useState([]);
   const [tasks, setTasks] = React.useState([])
+  const [summar, setSummar] = React.useState([])
+
+  function handleClick(items) {
+    setSummar(items);
+  }
 
   function handleInfoPopupClick(card) {
     setData(card);
@@ -70,8 +76,10 @@ function App() {
             index
             element={<Users open={handleInfoPopupClick} cards={cards} />}
           />
-          <Route path="Tasks" element={<Tasks tasks={tasks}/>} />
+          <Route path="Tasks" element={<Tasks tasks={tasks} openSummary={handleClick}/>} />
+          <Route path="Tasks/:id" element={<WorkItems isLoggedIn={isLoggedIn} summar={summar}/>}/>
         </Route>
+         
         <Route
           path="*"
           element={<Navigate to={isLoggedIn ? "" : "/Login"} />}

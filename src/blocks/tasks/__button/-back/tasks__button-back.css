@@ -1,0 +1,6 @@
+.tasks__button-back {
+    position: absolute;
+    z-index: 3;
+    margin: 5px 0 0 5px;
+    cursor: pointer;
+}

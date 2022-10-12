@@ -1,6 +1,7 @@
 import React from "react";
+import { NavLink } from "react-router-dom";
 
-function Tasks({ tasks}) {
+function Tasks({ tasks, openSummary }) {
   const [filterProjectName, setFilterProjectName] = React.useState("");
   const getFiltered = filter();
 
@@ -30,10 +31,15 @@ function Tasks({ tasks}) {
   const mapTable = () => {
     return getFiltered.map((task, index) => {
       return (
-        <tr className="users__card" key={index}>
+        <tr className="tasks__card" key={index}>
           <th className="users__info">{task.id}</th>
           <th className="users__info">{task.summary}</th>
           <th className="users__info">{task.project.name}</th>
+          <th className="users__info">
+            <NavLink to={`/Tasks/${task.id}`}>
+              <button className="tasks__button" onClick={() => openSummary(task)}>Timesheet</button>
+            </NavLink>
+          </th>
         </tr>
       );
     });
@@ -55,6 +61,7 @@ function Tasks({ tasks}) {
             <th className="users__text" value="projctName">
               Project Name
             </th>
+            <th className="users__text">Timesheet</th>
           </tr>
           {mapTable()}
         </tbody>
