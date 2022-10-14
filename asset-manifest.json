@@ -1,0 +1,21 @@
+{
+  "files": {
+    "main.css": "/apptrix_test/static/css/main.09a2b374.css",
+    "main.js": "/apptrix_test/static/js/main.5e5b75b4.js",
+    "static/js/498.246e935d.chunk.js": "/apptrix_test/static/js/498.246e935d.chunk.js",
+    "static/js/703.00e6b1a4.chunk.js": "/apptrix_test/static/js/703.00e6b1a4.chunk.js",
+    "static/js/478.102476cc.chunk.js": "/apptrix_test/static/js/478.102476cc.chunk.js",
+    "static/js/787.bfa59cfa.chunk.js": "/apptrix_test/static/js/787.bfa59cfa.chunk.js",
+    "index.html": "/apptrix_test/index.html",
+    "main.09a2b374.css.map": "/apptrix_test/static/css/main.09a2b374.css.map",
+    "main.5e5b75b4.js.map": "/apptrix_test/static/js/main.5e5b75b4.js.map",
+    "498.246e935d.chunk.js.map": "/apptrix_test/static/js/498.246e935d.chunk.js.map",
+    "703.00e6b1a4.chunk.js.map": "/apptrix_test/static/js/703.00e6b1a4.chunk.js.map",
+    "478.102476cc.chunk.js.map": "/apptrix_test/static/js/478.102476cc.chunk.js.map",
+    "787.bfa59cfa.chunk.js.map": "/apptrix_test/static/js/787.bfa59cfa.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.09a2b374.css",
+    "static/js/main.5e5b75b4.js"
+  ]
+}
