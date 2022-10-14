@@ -9,6 +9,7 @@ import ProtectedRoute from './ProtectedRoute'
 import { Layout } from "./Layout";
 import Tasks from "./Tasks";
 import WorkItems from "./WorkItems";
+import {} from 'react-pdf/'
 
 function App() {
   const navigate = useNavigate();
