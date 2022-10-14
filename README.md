@@ -1,7 +1,7 @@
 * [Ссылка на проект GitHub](https://aleksey313.github.io/apptrix_test/)
 
-# Login: erp_user
-# Password: 12qwaszx12qwaszx
+### Login: erp_user
+### Password: 12qwaszx12qwaszx
 
 # Getting Started with Create React App
 
