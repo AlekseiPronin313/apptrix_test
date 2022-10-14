@@ -5,7 +5,7 @@ axios.interceptors.response.use(
   async (error) => {
     if (error.response.status === 401) {
       const refreshToken = localStorage.getItem("refresh");
-      const {data} = await axios.post(
+      const data = await axios.post(
         "/api/token/refresh/",
         {
           refresh: refreshToken,
@@ -24,7 +24,7 @@ axios.interceptors.response.use(
 );
     
 export const sendData = async (username, password) => {
-    const { data } = await axios.post(
+    const data = await axios.post(
       "/api/token/",
       {
         username,

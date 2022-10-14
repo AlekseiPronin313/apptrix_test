@@ -3,9 +3,6 @@ import React from "react";
 function Authorization( {onLogin}) {
     const [username, setLogin] = React.useState("");
     const [password, setPassword] = React.useState("");
-    
-    console.log('Login: erp_user')
-    console.log('Password: 12qwaszx12qwaszx')
 
     function handleLoginChange(e) {
         setLogin(e.target.value);
