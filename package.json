@@ -2,7 +2,7 @@
   "name": "apptrix_test",
   "version": "0.1.0",
   "proxy": "http://erp.apptrix.ru",
-  "homepage": "https://aleksey313.github.io/apptrix_test/",
+  "homepage": "https://alekseipronin313.github.io/apptrix_test/",
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.5",
